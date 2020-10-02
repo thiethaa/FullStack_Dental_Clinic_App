@@ -47,3 +47,8 @@ child POM.file
           <description>dental_treatment_service</description>
 
         </project>
+
+
+1. start ActiveMQ Artemis >> ./artemis run
+2. histryx dashboard >> http://localhost:8060/hystrix and pass http://localhost:8050/actuator/hystrix.stream
+3. eureka server >> http://localhost:8761/
