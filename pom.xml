@@ -117,9 +117,6 @@
         <module>dental_Patient_service</module>
         <module>dental_Treatment_service</module>
         <module>dental_Employee_service</module>
-        <module>dental_eureka_server</module>
-        <module>dental_clinic_api_gateway</module>
-        <module>dental_clinic_hystrix_dashboard</module>
     </modules>
 
 </project>
