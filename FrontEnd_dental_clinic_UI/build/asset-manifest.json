@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/DENTAL-CLINIC-APP/static/css/main.50ae8df1.chunk.css",
+    "main.js": "/DENTAL-CLINIC-APP/static/js/main.b428b8f8.chunk.js",
+    "main.js.map": "/DENTAL-CLINIC-APP/static/js/main.b428b8f8.chunk.js.map",
+    "runtime-main.js": "/DENTAL-CLINIC-APP/static/js/runtime-main.4825550f.js",
+    "runtime-main.js.map": "/DENTAL-CLINIC-APP/static/js/runtime-main.4825550f.js.map",
+    "static/css/2.92f1f4a8.chunk.css": "/DENTAL-CLINIC-APP/static/css/2.92f1f4a8.chunk.css",
+    "static/js/2.9c1a7977.chunk.js": "/DENTAL-CLINIC-APP/static/js/2.9c1a7977.chunk.js",
+    "static/js/2.9c1a7977.chunk.js.map": "/DENTAL-CLINIC-APP/static/js/2.9c1a7977.chunk.js.map",
+    "index.html": "/DENTAL-CLINIC-APP/index.html",
+    "precache-manifest.e240154531f1dd08dd83612b8c866e4e.js": "/DENTAL-CLINIC-APP/precache-manifest.e240154531f1dd08dd83612b8c866e4e.js",
+    "service-worker.js": "/DENTAL-CLINIC-APP/service-worker.js",
+    "static/css/2.92f1f4a8.chunk.css.map": "/DENTAL-CLINIC-APP/static/css/2.92f1f4a8.chunk.css.map",
+    "static/css/main.50ae8df1.chunk.css.map": "/DENTAL-CLINIC-APP/static/css/main.50ae8df1.chunk.css.map",
+    "static/js/2.9c1a7977.chunk.js.LICENSE.txt": "/DENTAL-CLINIC-APP/static/js/2.9c1a7977.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/DENTAL-CLINIC-APP/static/media/bg2.d4da709d.jpg",
+    "static/media/dental.jpg": "/DENTAL-CLINIC-APP/static/media/dental.eec839b9.jpg",
+    "static/media/dentalchair.jpg": "/DENTAL-CLINIC-APP/static/media/dentalchair.85ffe483.jpg",
+    "static/media/dentist.jpg": "/DENTAL-CLINIC-APP/static/media/dentist.d36b0298.jpg",
+    "static/media/all.min.css": "/DENTAL-CLINIC-APP/static/media/fa-solid-900.ee09ad75.woff",
+    "static/media/logo.png": "/DENTAL-CLINIC-APP/static/media/logo.e4283ed8.png",
+    "static/media/smile.jpg": "/DENTAL-CLINIC-APP/static/media/smile.74f2d5ee.jpg",
+    "static/media/smile2.jpg": "/DENTAL-CLINIC-APP/static/media/smile2.d76e59c9.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4825550f.js",
+    "static/css/2.92f1f4a8.chunk.css",
+    "static/js/2.9c1a7977.chunk.js",
+    "static/css/main.50ae8df1.chunk.css",
+    "static/js/main.b428b8f8.chunk.js"
+  ]
+}

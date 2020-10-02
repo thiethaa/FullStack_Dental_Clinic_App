@@ -1,0 +1,37 @@
+server:
+  port: 8050
+
+spring:
+  application:
+    name: DentalClinic-API-Gateway
+#  cloud:
+#    gateway:
+#      routes:
+#      - id : treatments
+#        uri: http://localhost:8020/
+#        predicates:
+#        - Path=/dentaltreatments/**
+#
+#      - id : employee
+#        uri: http://localhost:8030/
+#        predicates:
+#        - Path=/dentalemployee/**
+#
+#      - id : patients
+#        uri: http://localhost:8040/
+#        predicates:
+#        - Path=/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000
