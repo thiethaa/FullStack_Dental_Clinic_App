@@ -1,7 +1,7 @@
 #FullStack_Dental_Clinic_App
 
 ABOUT THE DENTAL APP
-Implement back-End using Spring Boot, Spring Data Jpa,Spring Web,Spring Cloud Gateway, Spring Actuator, Spring Hystrix, Spring Hystrix Dashboard,Spring Cloud Eureka Server,Spring JMS, ActiveMQ Artemis,Spring Mail API,Hibernate,Lombok. Implement Front-End using ReactJS, React Router Dom, Axios,React Bootstrap,FontAwesome
+Implement back-End using Spring Boot, Spring Data Jpa,Spring Web,Spring Cloud Gateway, Spring Actuator, Spring Hystrix, Spring Hystrix Dashboard,Spring Cloud Eureka Server,Spring JMS, ActiveMQ Artemis,Spring Mail API,Hibernate,Lombok,Manage Pom File using Maven BOM . Implement Front-End using ReactJS, React Router Dom, Axios,React Bootstrap,FontAwesome
 
 Microservices App example with 4 services( 3 main-API + 1 API-GAteway) run in Back-End
 
