@@ -4,6 +4,7 @@ import com.thiethaa.dental_treatment_service.exception.MyException;
 import com.thiethaa.dental_treatment_service.model.Dentist;
 import com.thiethaa.dental_treatment_service.model.Treatment;
 import com.thiethaa.dental_treatment_service.service.TreatmentService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -23,6 +24,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/dentaltreatments")
+@Slf4j
 public class TreatmentController {
 
     @Autowired
@@ -39,7 +41,7 @@ public class TreatmentController {
         ResponseEntity<Dentist[]> response = restTemplate.getForEntity(url, Dentist[].class);
 
         Dentist[] dentists = null;
-        System.out.println("response code: " + response.getStatusCode().value());
+        log.debug("response code: " + response.getStatusCode().value());
         if (response != null && response.getStatusCode().is2xxSuccessful() && response.hasBody() && response.getBody().length > 0) {
           dentists = response.getBody();
             for (Dentist d : dentists) {

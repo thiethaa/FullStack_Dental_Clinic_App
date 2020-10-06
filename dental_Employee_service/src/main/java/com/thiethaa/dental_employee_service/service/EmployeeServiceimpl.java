@@ -3,6 +3,7 @@ package com.thiethaa.dental_employee_service.service;
 import com.thiethaa.dental_employee_service.exception.MyException;
 import com.thiethaa.dental_employee_service.model.Employee;
 import com.thiethaa.dental_employee_service.repository.EmployeeRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@Slf4j
 public class EmployeeServiceimpl implements EmployeeService {
 
     @Autowired
@@ -96,7 +98,7 @@ public class EmployeeServiceimpl implements EmployeeService {
 
     public List<Employee> getEmployeeList() {
         List<Employee> employeeList = repository.findAll();
-        System.out.println(employeeList);
+        log.debug("employeeList:" + employeeList.size());
         return employeeList;
     }
 

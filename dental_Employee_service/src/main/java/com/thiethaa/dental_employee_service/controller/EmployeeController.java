@@ -4,6 +4,7 @@ import com.thiethaa.dental_employee_service.exception.MyException;
 import com.thiethaa.dental_employee_service.model.Employee;
 import com.thiethaa.dental_employee_service.service.EmployeeService;
 import com.thiethaa.dental_employee_service.service.Publisher;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/dentalemployee")
+@Slf4j
 public class EmployeeController {
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private static String dt = LocalDateTime.now().format(formatter);
