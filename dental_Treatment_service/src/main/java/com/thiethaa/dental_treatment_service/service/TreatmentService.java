@@ -9,7 +9,7 @@ import java.util.List;
 public interface TreatmentService {
     Treatment storeTreatmentFile(MultipartFile file, String description, String title);
 
-    Treatment updateTreatmentFile(Treatment treatment);
+    Treatment updateTreatmentFile(MultipartFile file,String description, String title,String id);
 
     List<Treatment> getTreatmentList();
 

@@ -31,6 +31,28 @@ public class EmployeeController {
     @Autowired
     Publisher publisher;
 
+    @GetMapping("/displayEmployeeImage/{id}")
+    public ResponseEntity<byte[]> displayImage(@PathVariable String id) {
+        // Load file from database and show it in the browswer
+        Employee employee = service.getEmployeeById(id);
+
+        byte[] imageBytes = employee.getImage();
+
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
+    }
+
+    @GetMapping("/employeeList")
+    public ResponseEntity<List<Employee>> getEmployeeList() {
+        List<Employee> employeeList = service.getEmployeeList();
+        return new ResponseEntity<List<Employee>>(employeeList, new HttpHeaders(), HttpStatus.OK);
+    }
+
+    @GetMapping("/employee/{id}")
+    public ResponseEntity<Employee> getEmployeeByID(@PathVariable("id") String id) {
+        Employee employee = service.getEmployeeById(id);
+        return new ResponseEntity<Employee>(employee, new HttpHeaders(), HttpStatus.OK);
+    }
+
     @PostMapping(value = "/addEmployee", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> addEmployee(@RequestParam("file") MultipartFile file,
                                 @RequestParam("name") String name,
@@ -56,28 +78,6 @@ public class EmployeeController {
     public ResponseEntity<Employee> updateEmployeeInfo(@RequestBody Employee employee, @PathVariable("id") String id) {
         Employee newEmployee = service.updateEmployeeFile(null, employee, id);
         return new ResponseEntity<Employee>(newEmployee, new HttpHeaders(), HttpStatus.OK);
-    }
-
-    @GetMapping("/displayEmployeeImage/{id}")
-    public ResponseEntity<byte[]> displayImage(@PathVariable String id) {
-        // Load file from database and show it in the browswer
-        Employee employee = service.getEmployeeById(id);
-
-        byte[] imageBytes = employee.getImage();
-
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
-    }
-
-    @GetMapping("/employeeList")
-    public ResponseEntity<List<Employee>> getEmployeeList() {
-        List<Employee> employeeList = service.getEmployeeList();
-        return new ResponseEntity<List<Employee>>(employeeList, new HttpHeaders(), HttpStatus.OK);
-    }
-
-    @GetMapping("/employee/{id}")
-    public ResponseEntity<Employee> getEmployeeByID(@PathVariable("id") String id) {
-        Employee employee = service.getEmployeeById(id);
-        return new ResponseEntity<Employee>(employee, new HttpHeaders(), HttpStatus.OK);
     }
 
     @DeleteMapping("/removeEmployee/{id}")

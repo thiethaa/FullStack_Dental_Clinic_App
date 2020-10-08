@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class TreatmentServiceImpl implements TreatmentService{
+public class TreatmentServiceImpl implements TreatmentService {
 
     @Autowired
     TreatmentRepository repository;
@@ -52,22 +52,34 @@ public class TreatmentServiceImpl implements TreatmentService{
         }
     }
 
-    public Treatment updateTreatmentFile(Treatment treatment) {
-
-        if (treatment.getId() != null) {
-            Optional<Treatment> existTreatment = repository.findById(treatment.getId());
+    public Treatment updateTreatmentFile(MultipartFile file, String description, String title, String id) {
+        Treatment newTreatment = null;
+        if (id != null) {
+            Optional<Treatment> existTreatment = repository.findById(id);
             if (existTreatment.isPresent()) {
+                newTreatment = existTreatment.get();
+                try {
+                    String name = StringUtils.cleanPath(file.getOriginalFilename());
+                    newTreatment.setName(name);
+                    newTreatment.setImage(file.getBytes());
+                    newTreatment.setFileType(file.getContentType());
+                    newTreatment.setTitle(title);
+                    newTreatment.setDescription(description);
 
-                Treatment newTreatment = existTreatment.get();
-                newTreatment.setTitle(treatment.getTitle());
-                newTreatment.setDescription(treatment.getDescription());
-                return repository.save(treatment);
-            } else {
-                Treatment newCreated = repository.save(treatment);
-                return newCreated;
+                    String fileDisplayUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                            .path("/dentaltreatments/displayFile/")
+                            .path(newTreatment.getId())
+                            .toUriString();
+                    newTreatment.setThumbnailUrl(fileDisplayUri);
+                    repository.save(newTreatment);
+                    return repository.save(newTreatment);
+                } catch (Exception ex) {
+                    System.err.println("Error updating service with id: " + id);
+                    ex.printStackTrace(System.err);
+                }
             }
         }
-        return treatment;
+        return newTreatment;
     }
 
     public List<Treatment> getTreatmentList() {
