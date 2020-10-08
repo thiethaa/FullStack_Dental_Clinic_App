@@ -27,8 +27,7 @@ export default class Schedule extends Component {
     }
 
     getSchedule(){
-        axios.get('http://localhost:8040/patientList')
-        // axios.get('http://localhost:8050/patientList')
+        axios.get('http://localhost:8050/patientList')
         .then(response => response.data)
         .then((data)=>{
             this.setState({schedules: data});
