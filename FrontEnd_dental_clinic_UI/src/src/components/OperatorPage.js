@@ -6,18 +6,18 @@ export default class OperatorPage extends Component {
     constructor(props){
         super(props);
 
-        const token = localStorage.getItem("token")
-        let loggedIn = true
-            if(token == null){
-                loggedIn=false
+        const token2 = localStorage.getItem("token2")
+        let loggedInOperator = true
+            if(token2 == null){
+                loggedInOperator=false
             }
             this.state={
-                loggedIn
+                loggedInOperator
             }
         }
 
     render() {
-        if(this.state.loggedIn=== false){
+        if(this.state.loggedInOperator === false){
             return <Redirect to="/signin"></Redirect>
         }
     
@@ -33,33 +33,24 @@ export default class OperatorPage extends Component {
         
             return (
                 <div style={formCss}>
-                <h2 style={{color:'navy',textAlign:'center'}}> You have been Logged in as Admin</h2><br></br>
-                <div className="d-flex justify-content-around">
+                <h2 style={{color:'navy',textAlign:'center'}}> You have been Logged in as Operator</h2><br></br>
+                <div  className="d-flex justify-content-around">
                 <CardDeck>
                 <Card className="bg-light text-dark">
                             <Card.Body>
                             <Card.Title style={{textAlign:'center',fontSize:'15px'}}>
-                            <h4 style={{fontFamily:'fantasy'}}>Add/Edit Employee</h4>
+                            <h4 style={{fontFamily:'fantasy'}}>Edit Employee</h4>
                             <br></br>
-                            <Link to="/setting"><Button variant="primary" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i className="fas fa-user-edit"></i></span>  add/Edit Employee</Button></Link>
+                            <Link to="/settingopt"><Button variant="primary" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i className="fas fa-user-edit"></i></span>  Edit Employee</Button></Link>
                             </Card.Title>
                             </Card.Body>
                         </Card>
                         <Card className="bg-light text-dark">
                             <Card.Body>
                             <Card.Title style={{textAlign:'center',fontSize:'15px'}}>
-                            <h4 style={{fontFamily:'fantasy'}}>Add New Dental Service</h4>
+                            <h4 style={{fontFamily:'fantasy'}}>Patients Medical History</h4>
                             <br></br>
-                            <Link to="/settingservice"><Button variant="success" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i className="fas fa-plus-square"></i></span>  add Service</Button></Link>
-                            </Card.Title>
-                            </Card.Body>
-                        </Card>
-                        <Card className="bg-light text-dark">
-                            <Card.Body>
-                            <Card.Title style={{textAlign:'center',fontSize:'15px'}}>
-                            <h4 style={{fontFamily:'fantasy'}}>Appointment List</h4>
-                            <br></br>
-                            <Link to="/schedule"><Button variant="warning" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i class="fas fa-list"></i></span>  Appointmen List</Button></Link>
+                            <Link to="/patienthistory"><Button variant="warning" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i class="fas fa-list"></i></span>  Patients Medical History</Button></Link>
                             </Card.Title>
                             </Card.Body>
                         </Card>
@@ -76,5 +67,6 @@ export default class OperatorPage extends Component {
                 </div>
             </div>
             )
+         
         }
     }

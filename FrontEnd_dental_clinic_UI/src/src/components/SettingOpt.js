@@ -7,23 +7,23 @@ import MyToast from './MyToast';
 export default class Setting extends Component {
     constructor(props){
         super(props);
-        const token = localStorage.getItem("token")
-        let loggedIn = true
-            if(token == null){
-                loggedIn=false
+
+        const token2 = localStorage.getItem("token2")
+        let loggedInOperator = true
+            if(token2 == null){
+                loggedInOperator=false
             }
+          
         this.state={
-                services:[],
-                employees : [],
-                loggedIn
-            }
+            employees : [],
+            loggedInOperator
         }
+    }
 
     componentDidMount() {
         this.getEmployees();
     }
-
-
+    
     getEmployees(){
         axios.get("http://localhost:8030/dentalemployee/employeeList")
             .then(response => response.data)
@@ -33,7 +33,7 @@ export default class Setting extends Component {
     }
 
     render() {
-        if(this.state.loggedIn=== false){
+        if(this.state.loggedInOperator === false){
             return <Redirect to="/signin"></Redirect>
         }
         const formCss ={
@@ -49,10 +49,8 @@ export default class Setting extends Component {
         }
         return (
             <div style={formCss}>
-                <Link to="/addemployee"><Button variant="primary" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i className="fas fa-user-plus"></i></span>  Add Employee</Button></Link>
-                <Link to="/addservice"><Button variant="success" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i className="fas fa-plus-square"></i></span>  Add Service</Button></Link>
-                <Link to="/schedule"><Button variant="warning" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i class="fas fa-list"></i></span>  Appointment List</Button></Link>
-                <Link to="/adminpage"><Button variant="info" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i class="fas fa-backward"></i></span>  Back</Button></Link>
+                <Link to="/patienthistory"><Button variant="warning" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i class="fas fa-list"></i></span>  Patients Medical History</Button></Link>
+                <Link to="/operatorpage"><Button variant="info" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i class="fas fa-backward"></i></span>  Back</Button></Link>
                 <Link to="/signout"><Button variant="danger" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i class="fas fa-sign-out-alt"></i></span>  SignOut</Button></Link>
             {
                 this.state.employees.length === 0 ?
@@ -97,7 +95,6 @@ export default class Setting extends Component {
                                 <Card.Footer style={{textAlign:'right',background:'#01459A'}}>
                                     <ButtonGroup>
                                         <Link to= {"edit/"+employee.employeeID}><Button style={btnCss} type="submit"  variant="success" ><i className="fas fa-user-edit"></i></Button></Link>
-                                        <Link to= {"delete/"+employee.employeeID}><Button style={btnCss} type="submit"  variant="danger" ><i className="fas fa-trash-alt"></i></Button></Link>
                                     </ButtonGroup>
                                 </Card.Footer>
                             </Card>

@@ -4,50 +4,75 @@ import { Button,Card,Form,Row,Col} from 'react-bootstrap';
 import axios from 'axios';
 import MyToast from './MyToast';
 
-export default class AddEmployee extends Component {
+export default class EditEmployee extends Component {
 
     constructor(props){
         super(props);
             this.state = this.initialState;
             this.textChange = this.textChange.bind(this);
-            this.submitEmp = this.submitEmp.bind(this);
-            this.selectChange = this.selectChange.bind(this);
+            this.editEmp = this.editEmp.bind(this);
+            this.findEmployeeByID = this.findEmployeeByID.bind(this);
             this.state.show = false;
     }
 
     initialState = {
-        name: '',position: '',email: '',fb: '',twitter: '',ig: '',phone: '',file : null
+        id :'', name: '',position: '',email: '',fb: '',twitter: '',ig: '',phone: ''
     }
 
-    submitEmp = event => {
+    componentDidMount() {
+        const employeeID = this.props.match.params.id;
+            this.findEmployeeByID(employeeID);
+                console.log(employeeID);
+    }
+    
+    findEmployeeByID = (employeeID) =>{
+        axios.get("http://localhost:8030/dentalemployee/employee/"+employeeID)
+        .then(response => {
+                this.setState({
+                id: response.data.employeeID,
+                name: response.data.employeeName,
+                position: response.data.position,
+                email: response.data.email,
+                fb: response.data.fb,
+                twitter: response.data.twitter,
+                ig: response.data.ig,
+                phone:response.data.phone
+            })
+        })
+    }
+
+    editEmp = event => {
         event.preventDefault();
-
-        const newEmp = new FormData();
-
-            newEmp.append('name', this.state.name);
-            newEmp.append('position',this.state.position);
-            newEmp.append('email', this.state.email);
-            newEmp.append('fb', this.state.fb);
-            newEmp.append('twitter', this.state.twitter);
-            newEmp.append('ig', this.state.ig);
-            newEmp.append('phone',this.state.phone);
-            newEmp.append('file', this.state.file);
-
-            console.log('data', newEmp);
-
-            axios.post('http://localhost:8030/dentalemployee/employeeList', newEmp)
-                 .then(response => {
-                this.setState({show:true});
-                setTimeout (()=> this.setState({"show":false}),3000);
-                });
-            this.setState(this.initialState);
+        console.log("comee here");
+        
+        const id = this.state.id;
+        const data = {
+                employeeName: this.state.name,
+                position:this.state.position,
+                email: this.state.email,
+                fb: this.state.fb,
+                twitter: this.state.twitter,
+                ig: this.state.ig,
+                phone:this.state.phone
         }
+        console.log("data"+ id);
+        console.log(data);
+        
+        
+          axios.put("http://localhost:8030/dentalemployee/updateEmployeeInfo/"+id, data)
+          .then (response => {
+            this.setState({show:true});
+            setTimeout (()=> this.setState({"show":false}),3000);
+        });
+        this.setState(this.initialState);
+    }
 
     resetEmp = () => {
         this.setState(()=> this.initialState);
     }
 
     textChange = event => {
+   
         if (event.target.name === "name") {
             this.setState({
             name: event.target.value
@@ -85,13 +110,6 @@ export default class AddEmployee extends Component {
         }
     }
 
-    selectChange = event => {
-        if (event.target.name === 'file') {
-          this.setState({
-           file: event.target.files[0]
-          });
-        }
-      }
 
     employeeList =()=>{
         return this.props.history.push("/setting");
@@ -101,18 +119,20 @@ export default class AddEmployee extends Component {
     render() {
         const {name,position,email,fb,twitter,ig,phone} = this.state;
         const formCss ={
-            marginTop:'10%',marginBottom : '35px'
+            marginTop:'10%',
+            marginBottom : '35px'
              };
 
         return (
         <div style={formCss}>
             <div style={{"display": this.state.show ? "block" : "none"}}>
-                <MyToast show = {this.state.show} message = {"Employee Saved Successfully!!!"} type = {"success"} />
+                <MyToast show = {this.state.show} message = {"Employee Updated Successfully!!!"} type = {"success"} />
             </div>
                 <Card className="border border-light bg-info text-white">
-                    <Card.Header><i className="fas fa-user-plus" style={{color:'cyan'}}>  Add New Employee</i></Card.Header>
-                            <Form onReset={this.resetEmp} onSubmit={this.submitEmp} id="employeeFormId" encType="multipart/form-data">
+                    <Card.Header><i className="fas fa-user-plus" style={{color:'cyan'}}>  Update Employee Information</i></Card.Header>
+                            <Form onReset={this.resetEmp} onSubmit={this.editEmp} id="employeeFormId" encType="multipart/form-data">
                                 <Card.Body>
+
                                     <Form.Group as={Row}>
                                         <Form.Label column sm="2">Name</Form.Label>
                                         <Col sm="10">
@@ -162,17 +182,11 @@ export default class AddEmployee extends Component {
                                         </Col>
                                     </Form.Group> 
 
-                                    <Form.Group as={Row}>
-                                        <Form.Label column sm="4">Image Upload</Form.Label>
-                                        <Col sm="8">
-                                        <input type="file" name='file' onChange={this.selectChange} required/>
-                                        </Col>
-                                    </Form.Group> 
                                 </Card.Body>
                             <Card.Footer className="border border-white bg-info text-white" style={{textAlign:'right'}}>
-                                <Button type="reset" variant="success" size="sm"><i className="fas fa-undo-alt" style={{color:'white'}}>  Reset</i></Button>{'  '}
-                                <Button type="submit" variant="primary" size="sm"><i className="far fa-save">  Submit</i></Button>{'  '}
-                                <Button type="submit" variant="warning" size="sm" onClick={this.employeeList.bind()}><i className="fas fa-list">  EmployeeList</i></Button>{'  '}
+                                <Button type="reset" variant="warning" size="sm"><i className="fas fa-undo-alt" style={{color:'white'}}>  Reset</i></Button>{'  '}
+                                <Button type="submit" variant="success" size="sm"><i class="fas fa-pen-square"> Update</i></Button>{'  '}
+                                <Button type="submit" variant="light" size="sm" onClick={this.employeeList.bind()}><i className="fas fa-backward">  Back</i></Button>{'  '}
                             </Card.Footer>
                     </Form>
                 </Card>

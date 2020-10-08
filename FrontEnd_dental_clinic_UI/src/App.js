@@ -9,6 +9,8 @@ import EditEmployee from './components/EditEmployee';
 import { Container,Row,Col } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Services from './components/Services';
+import SettingService from './components/SettingService';
+import AddService from './components/AddService';
 import EditImage from './components/EditImage';
 import DeleteEmployee from './components/DeleteEmployee';
 import Appointment from './components/Appointment';
@@ -27,39 +29,41 @@ import SendNotification from './components/SendNotification';
 
 function App() {
   return (
-    <Router>
-      <Navigation/>
-      <Container>
-        <Row>
-          <Col lg={12} style={{marginTop:'20px'}}>
-            <Switch>
-              <Route path="/" component={Welcome} exact />
-              <Route path="/add" component={AddEmployee}/>
-              <Route path="/ourteam" component={OurTeam}/>
-              <Route path="/services" component={Services}/>
-              <Route path="/addemployee" component={AddEmployee} exact />
-              <Route path="/edit/:id" component={EditEmployee} exact/>
-              <Route path="/delete/:id" component={DeleteEmployee} exact/>
-              <Route path="/editimage/:id" component={EditImage} exact/>
-              <Route path="/appt/:id" component={Appointment} exact/>
-              <Route path="/register" component={Register} exact/>
-              <Route path="/signin" component={SignIn} exact/>
-              <Route path="/setting" component={Setting} exact/>
-              <Route path="/signout" component={SignOut} exact/>
-              <Route path="/patienthistory" component={PatientHistory} exact/>
-              <Route path="/settingopt" component={SettingOpt} exact/>
-              <Route path="/operatorpage" component={OperatorPage} exact/>
-              <Route path="/adminpage" component={AdminPage} exact/>
-              <Route path="/schedule" component={Schedule} exact/>
-              <Route path="/dentistnote/:username" component={DentistNote} exact/>
-              <Route path="/editpatient/:username" component={Editpatient} exact/>
-              <Route path="/sendNotification/:username" component={SendNotification} exact/>
-            </Switch>
-          </Col>
-        </Row>
-      </Container>
-      <Footer/>
-    </Router>
+      <Router>
+        <Navigation/>
+        <Container>
+          <Row>
+            <Col lg={12} style={{marginTop:'20px'}}>
+              <Switch>
+                <Route path="/" component={Welcome} exact />
+                <Route path="/add" component={AddEmployee}/>
+                <Route path="/ourteam" component={OurTeam}/>
+                <Route path="/services" component={Services}/>
+                <Route path="/addservice" component={AddService}/>
+                <Route path="/settingservice" component={SettingService}/>
+                <Route path="/addemployee" component={AddEmployee} exact />
+                <Route path="/edit/:id" component={EditEmployee} exact/>
+                <Route path="/delete/:id" component={DeleteEmployee} exact/>
+                <Route path="/editimage/:id" component={EditImage} exact/>
+                <Route path="/appt/:id" component={Appointment} exact/>
+                <Route path="/register" component={Register} exact/>
+                <Route path="/signin" component={SignIn} exact/>
+                <Route path="/setting" component={Setting} exact/>
+                <Route path="/signout" component={SignOut} exact/>
+                <Route path="/patienthistory" component={PatientHistory} exact/>
+                <Route path="/settingopt" component={SettingOpt} exact/>
+                <Route path="/operatorpage" component={OperatorPage} exact/>
+                <Route path="/adminpage" component={AdminPage} exact/>
+                <Route path="/schedule" component={Schedule} exact/>
+                <Route path="/dentistnote/:username" component={DentistNote} exact/>
+                <Route path="/editpatient/:username" component={Editpatient} exact/>
+                <Route path="/sendNotification/:username" component={SendNotification} exact/>
+              </Switch>
+            </Col>
+          </Row>
+        </Container>
+        <Footer/>
+      </Router>
   );
 }
 
