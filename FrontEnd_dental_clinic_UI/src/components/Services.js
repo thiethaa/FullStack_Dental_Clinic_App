@@ -14,7 +14,7 @@ export default class Features extends React.Component {
     }
   
     componentDidMount() {
-        axios.get(`http://localhost:8020/dentaltreatments/treatmentList`)
+        axios.get(`http://localhost:8050/dentaltreatments/treatmentList`)
             .then(res => {
                 const apifile = res.data;
                 this.setState({apifile});
