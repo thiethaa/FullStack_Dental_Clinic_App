@@ -48,7 +48,7 @@ export default class OperatorPage extends Component {
                         <Card className="bg-light text-dark">
                             <Card.Body>
                             <Card.Title style={{textAlign:'center',fontSize:'15px'}}>
-                            <h4 style={{fontFamily:'fantasy'}}>Add New Dental Service</h4>
+                            <h4 style={{fontFamily:'fantasy'}}>Add/Edit Dental Service</h4>
                             <br></br>
                             <Link to="/settingservice"><Button variant="success" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i className="fas fa-plus-square"></i></span>  add Service</Button></Link>
                             </Card.Title>

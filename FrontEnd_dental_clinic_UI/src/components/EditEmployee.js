@@ -43,7 +43,6 @@ export default class EditEmployee extends Component {
 
     editEmp = event => {
         event.preventDefault();
-        console.log("comee here");
         
         const id = this.state.id;
         const data = {
@@ -56,7 +55,6 @@ export default class EditEmployee extends Component {
                 phone:this.state.phone
         }
         console.log("data"+ id);
-        console.log(data);
         
         
           axios.put("http://localhost:8030/dentalemployee/updateEmployeeInfo/"+id, data)

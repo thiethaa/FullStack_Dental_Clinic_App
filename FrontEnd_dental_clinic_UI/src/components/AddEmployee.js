@@ -35,7 +35,7 @@ export default class AddEmployee extends Component {
 
             console.log('data', newEmp);
 
-            axios.post('http://localhost:8030/dentalemployee/employeeList', newEmp)
+            axios.post('http://localhost:8030/dentalemployee/addEmployee', newEmp)
                  .then(response => {
                 this.setState({show:true});
                 setTimeout (()=> this.setState({"show":false}),3000);

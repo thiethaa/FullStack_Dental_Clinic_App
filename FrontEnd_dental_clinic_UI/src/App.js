@@ -10,6 +10,8 @@ import { Container,Row,Col } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Services from './components/Services';
 import SettingService from './components/SettingService';
+import EditService from './components/EditService';
+import DeleteService from './components/DeleteService';
 import AddService from './components/AddService';
 import EditImage from './components/EditImage';
 import DeleteEmployee from './components/DeleteEmployee';
@@ -40,6 +42,8 @@ function App() {
                 <Route path="/ourteam" component={OurTeam}/>
                 <Route path="/services" component={Services}/>
                 <Route path="/addservice" component={AddService}/>
+                <Route path="/editservice/:id" component={EditService} exact/>
+                <Route path="/deleteservice/:id" component={DeleteService} exact/>
                 <Route path="/settingservice" component={SettingService}/>
                 <Route path="/addemployee" component={AddEmployee} exact />
                 <Route path="/edit/:id" component={EditEmployee} exact/>

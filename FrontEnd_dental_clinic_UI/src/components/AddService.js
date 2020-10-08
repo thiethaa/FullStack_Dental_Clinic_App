@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Button,Card,Form,Row,Col} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 import MyToast from './MyToast';
 
@@ -80,11 +79,6 @@ export default class addService extends Component {
                     <MyToast show = {this.state.show} message = {"new Dental service Saved Successfully!!!"} type = {"success"} />
                 </div>
 
-                <Link to="/setting"><Button variant="primary" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i className="fas fa-user-plus"></i></span>  Add/Edit Employee</Button></Link>
-                <Link to="/schedule"><Button variant="warning" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i class="fas fa-list"></i></span>  Appointment List</Button></Link>
-                <Link to="/adminpage"><Button variant="info" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i class="fas fa-backward"></i></span>  Back</Button></Link>
-                <Link to="/signout"><Button variant="danger" style={{boxShadow: ' 4px 4px navy', marginTop:'10px',marginBottom:'15px'}}><span><i class="fas fa-sign-out-alt"></i></span>  SignOut</Button></Link>
-            
 
                 <Card className="border border-light bg-info text-white">
                     <Card.Header><i className="fas fa-plus-square" style={{color:'cyan'}}>  Add New Dental Service</i></Card.Header>

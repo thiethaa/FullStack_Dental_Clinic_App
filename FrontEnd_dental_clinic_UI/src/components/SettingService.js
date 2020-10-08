@@ -30,21 +30,21 @@ export default class SettingService extends Component {
             });
     }
 
-    deleteService = (id) => {
-        axios.delete("http://localhost:8020/dentaltreatments/remove/"+id)
-            .then(response => {
-                if(response.data != null) {
-                    this.setState({"show":true});
-                    setTimeout(() => this.setState({"show":false}), 3000);
-                    // refresing page
-                    this.setState({
-                        services : this.state.services.filter(file => file.id !== id)
-                    });
-                } else {
-                    this.setState({"show":false});
-                }
-            });
-        };
+    // deleteService = (id) => {
+    //     axios.delete("http://localhost:8020/dentaltreatments/remove/"+id)
+    //         .then(response => {
+    //             if(response.data != null) {
+    //                 this.setState({"show":true});
+    //                 setTimeout(() => this.setState({"show":false}), 3000);
+    //                 // refresing page
+    //                 this.setState({
+    //                     services : this.state.services.filter(file => file.id !== id)
+    //                 });
+    //             } else {
+    //                 this.setState({"show":false});
+    //             }
+    //         });
+    //     };
 
     render() {
         if(this.state.loggedIn=== false){
@@ -84,11 +84,11 @@ export default class SettingService extends Component {
                         <Card.Header style={{ background:'#A0D3ED',textAlign:'center', fontFamily:'cursive', fontSize:'20px', color:'navy'}}>{file.title}</Card.Header>
                             <Card.Body>
 
-                            <Link to={"editimage/"+file.id}><OverlayTrigger key='bottom' placement='bottom' overlay={
+                            <Link to={"editimageservice/"+file.id}><OverlayTrigger key='bottom' placement='bottom' overlay={
                                 <Tooltip id={`tooltip-bottom`}>
                                   <strong>Edit Image</strong>.
                                 </Tooltip>}>
-                                <i style={{ marginLeft:'95%',cursor:'pointer',color:'#01459A'}} className="fas fa-ellipsis-h"></i>
+                                <i style={{ marginLeft:'95%',cursor:'pointer',color:'#white',display:'none'}} className="fas fa-ellipsis-h"></i>
                             </OverlayTrigger></Link>
 
                                 <Card.Img variant="top" src={file.thumbnailUrl} style={{width: '16rem', height:'10rem'}}/>
@@ -98,7 +98,8 @@ export default class SettingService extends Component {
                             </Card.Body>
                             <Card.Footer style={{textAlign:'right',background:'#01459A'}}>
                                 <ButtonGroup>
-                                <Button style={btnCss} type="submit" variant="danger" size="sm" onClick={this.deleteService.bind(this,file.id)} ><i className="fas fa-trash-alt"></i></Button>
+                                <Link to= {"editservice/"+file.id}><Button style={btnCss} type="submit"  variant="success" ><i className="far fa-edit"></i></Button></Link>
+                                <Link to= {"deleteservice/"+file.id}><Button style={btnCss} type="submit"  variant="danger" ><i className="fas fa-trash-alt"></i></Button></Link>
                                 </ButtonGroup>
                                 </Card.Footer>
                             </Card>
