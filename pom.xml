@@ -55,6 +55,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>${spring-props.version}</version>
+        </dependency>
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.19</version>
@@ -114,12 +119,14 @@
     </build>
 
     <modules>
+        <module>dental_eureka_server</module>
+        <module>dental_clinic_config_server</module>
+        <module>dental_clinic_api_gateway</module>
+        <module>dental_clinic_hystrix_dashboard</module>
         <module>dental_Patient_service</module>
         <module>dental_Treatment_service</module>
         <module>dental_Employee_service</module>
-        <module>dental_eureka_server</module>
-        <module>dental_clinic_api_gateway</module>
-        <module>dental_clinic_hystrix_dashboard</module>
+
     </modules>
 
 </project>

@@ -4,6 +4,7 @@ server:
 spring:
   application:
     name: DentalClinic-API-Gateway
+#    -----configurare API router using yml File-----------
 #  cloud:
 #    gateway:
 #      routes:
