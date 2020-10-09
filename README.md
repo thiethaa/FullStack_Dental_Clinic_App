@@ -3,16 +3,30 @@
 ABOUT THE DENTAL APP
 Implement back-End using Spring Boot, Spring Data Jpa,Spring Web,Spring Cloud Gateway, Spring Actuator, Spring Hystrix, Spring Hystrix Dashboard,Spring Cloud Eureka Server,Spring JMS, ActiveMQ Artemis,Spring Mail API,Hibernate,Lombok,Manage Pom File using Maven BOM . Implement Front-End using ReactJS, React Router Dom, Axios,React Bootstrap,FontAwesome
 
-Microservices App example with 4 services( 3 main-API + 1 API-GAteway) run in Back-End
+Microservices App example with 6 services run in Back-End
 
     Dental Patient Service
     Dental Employess Service
     Dental Treatment Service
+    Dental Eureka Server
+    Dental Api gateway Service
+    Dental Hystrix Dashboard service
+    
+-   Implement Dental-Treatment, Dental-Employee and Dental-Patient services using Spring Boot, Spring Data Jpa,Hibernate and MySQL driver to Persist Data to 
+    DB,Spring Web,Spring Cloud Eureka Client to allow Registration to eureka Discovery Server,Implement Spring JMS and using ActiveMQ Artemis as a Broker,Spring
+    Mail API to sending Notification,Lombok,Manage Parent Pom File using Maven BOM. 
 -   DentalClinic API Gateway is another springboot project that use Spring Cloud Gateway, Actuator,Hystrix and eureka client. --> Use Postman to test all CURD 
     operation.
 -   this app also implement Springboot JMS template and activeMQ Artemis as a broker in order to aproach communication between services.Using Postman to send   
-            message to all servers http://localhost:8040/sendMsg.
-            start ActiveMQ Artemis >> ./artemis run
+            message to all servers (POST) http://localhost:8040/sendMsg.
+                
+                start ActiveMQ Artemis >> 
+                    go to Directory where ActiveMq has been Store, example :
+                    
+                            cd MyActiveMQ
+                            cd bin
+                            ./artemis run
+                
 -   Dental Eureka_server is a SpringBoot project that use Spring Cloud Eureka server to discover and Registry each service, Eureka server running on 
             http://localhost:8761/
 -   DentalClinic Hystrix Dashboard is a Springboot project that use hystrix dashboard to monitor hystrix metrix in realtime, hystrix dashboar running on 
@@ -22,8 +36,10 @@ Microservices App example with 4 services( 3 main-API + 1 API-GAteway) run in Ba
             patient dummy gmail : test.dental.app@gmail.com 
             admin dummy gmail : dentalclinic.app.admn@gmail.com
 -   finally Implement the Front-End using React.js, React-Router-Dom, React-Bootstrap, FontAwesome, Axios library to consume API, handle the login session with 
-            react-router-DOM username : operator/admin 
-            password : password
+            react-router-DOM 
+            
+                        username : operator/admin 
+                        password : password
             
 
 NOTE:
