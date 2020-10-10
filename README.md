@@ -19,7 +19,7 @@ Microservices App example with 6 services run in Back-End
     operation.
 -   DentalClinic Config Server is a Springboot App that implement Spring Cloud Config  that provides server-side and client-side support for externalized 
     configuration in a distributed system. With the Config Server, we have a central place to manage external properties for applications across all environments.
-    https://github.com/thiethaa/dental_clinic_config_server.git
+    https://github.com/thiethaa/config-properties
 -   this app also implement Springboot JMS template and activeMQ Artemis as a broker in order to aproach communication between services.Using Postman to send   
             message to all servers (POST) http://localhost:8040/sendMsg.
                 
