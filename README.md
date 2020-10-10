@@ -9,6 +9,7 @@ Microservices App example with 7 services run in Back-End
     Dental Employess Service
     Dental Treatment Service
     Dental Eureka Server
+    Dental Config server
     Dental Api gateway Service
     Dental Hystrix Dashboard service
     
