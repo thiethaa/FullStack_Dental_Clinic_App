@@ -15,7 +15,6 @@ public class DentaltreatmentServiceApplication {
 		return  new RestTemplate();
 	}
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(DentaltreatmentServiceApplication.class, args);
 	}

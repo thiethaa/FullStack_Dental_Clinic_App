@@ -27,6 +27,7 @@ import AdminPage from './components/AdminPage';
 import Schedule from './components/Schedule';
 import DentistNote from './components/DentistNote';
 import Editpatient from './components/EditPatient';
+import DeletePatient from './components/DeletePatient';
 import SendNotification from './components/SendNotification';
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
                 <Route path="/schedule" component={Schedule} exact/>
                 <Route path="/dentistnote/:username" component={DentistNote} exact/>
                 <Route path="/editpatient/:username" component={Editpatient} exact/>
+                <Route path="/deletepatient/:username" component={DeletePatient} exact/>
                 <Route path="/sendNotification/:username" component={SendNotification} exact/>
               </Switch>
             </Col>

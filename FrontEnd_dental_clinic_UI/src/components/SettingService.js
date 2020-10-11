@@ -30,22 +30,6 @@ export default class SettingService extends Component {
             });
     }
 
-    // deleteService = (id) => {
-    //     axios.delete("http://localhost:8020/dentaltreatments/remove/"+id)
-    //         .then(response => {
-    //             if(response.data != null) {
-    //                 this.setState({"show":true});
-    //                 setTimeout(() => this.setState({"show":false}), 3000);
-    //                 // refresing page
-    //                 this.setState({
-    //                     services : this.state.services.filter(file => file.id !== id)
-    //                 });
-    //             } else {
-    //                 this.setState({"show":false});
-    //             }
-    //         });
-    //     };
-
     render() {
         if(this.state.loggedIn=== false){
             return <Redirect to="/signin"></Redirect>

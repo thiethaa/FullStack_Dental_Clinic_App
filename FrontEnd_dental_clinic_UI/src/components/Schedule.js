@@ -77,6 +77,7 @@ export default class Schedule extends Component {
                     <th>Time</th>
                     <th>Reminder</th>
                     <th>Edit</th>
+                    <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody> {this.state.schedules.map((schedule) => (
@@ -93,6 +94,7 @@ export default class Schedule extends Component {
                         <td>{schedule.time}</td>
                         <td><Link to={"/sendNotification/"+schedule.username}><Button variant="primary" style={{fontSize:'15px',marginLeft:'5px'}} onClick={this.getSchedule.bind(this,schedule.username)}><span><i class="fas fa-envelope"></i></span></Button></Link></td>
                         <td><Link to={"/editpatient/"+schedule.username}><Button variant="success" style={{fontSize:'15px',marginLeft:'5px'}} onClick={this.getSchedule.bind(this,schedule.username)}><span><i className="fas fa-edit"></i></span></Button></Link></td>
+                        <td><Link to={"/deletepatient/"+schedule.username}><Button variant="danger" style={{fontSize:'15px',marginLeft:'5px'}} onClick={this.getSchedule.bind(this,schedule.username)}><span><i className="fas fa-trash"></i></span></Button></Link></td>
                     </tr>
                     ))}
                 </tbody>
